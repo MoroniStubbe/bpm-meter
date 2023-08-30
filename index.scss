@@ -1,0 +1,24 @@
+* {
+    touch-action: manipulation;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 10vh;
+
+    #button {
+        padding: 5vh 5vw;
+        font-size: 10vh;
+    }
+
+    #reset {
+        padding: 2vh 2vw;
+        font-size: 5vh;
+    }
+
+}

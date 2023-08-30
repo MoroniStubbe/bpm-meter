@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <style>
+        * {
+            touch-action: manipulation;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 10vh;
+        }
+
+        body #button {
+            padding: 5vh 5vw;
+            font-size: 10vh;
+        }
+
+        body #reset {
+            padding: 2vh 2vw;
+            font-size: 5vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div>BPM: <span id="bpm">0</span></div>
+    <button id="button">Press</button>
+    <button id="reset">Reset</button>
+</body>
+
+<script>
+    var startTime = 0;
+    var time;
+    var beats = 0;
+
+    function bpm() {
+        if (startTime == 0) {
+            startTime = new Date().getTime();
+        }
+        else {
+            beats++;
+            time = new Date().getTime();
+            document.getElementById('bpm').innerHTML = Math.round(60000 / ((time - startTime) / beats));
+        }
+    }
+
+    function reset() {
+        startTime = 0;
+        beats = 0;
+        document.getElementById('bpm').innerHTML = 0;
+    }
+
+    document.getElementById('button').addEventListener('click', bpm);
+    document.getElementById('reset').addEventListener('click', reset);
+</script>
+
+</html>
